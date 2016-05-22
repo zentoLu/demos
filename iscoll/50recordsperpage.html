@@ -6,7 +6,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		
-		<title>滚动加载</title>
+		<title>每次加载50条</title>
 		
 		<script src="iscroll-probe.js"></script>
 		
@@ -192,7 +192,7 @@
 					var el, li, i;
 					el = document.getElementById('thelist');
 			
-					for (i=0; i<10; i++) {
+					for (i=0; i<50; i++) {
 						li = document.createElement('li');
 						li.innerText = 'Generated row ' + (++generatedCount);
 						el.appendChild(li, el.childNodes[0]);
@@ -335,7 +335,7 @@
 							}
 						}
 						if (pullUpEl) {
-							if (this.y < (this.maxScrollY - pullThreshold + 300) && !pullUpEl.className.match('flip')) {
+							if (this.y < (this.maxScrollY - pullThreshold + 500) && !pullUpEl.className.match('flip')) {
 								pullUpEl.className = 'pullUp flip';
 								pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to load more...';
 								pullUpActionHandler(this);	// Execute custom function (ajax call?)
@@ -357,7 +357,7 @@
 							pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';
 							pullUpActionHandler(this);	// Execute custom function (ajax call?)
 						}
-						if (this.y < (this.maxScrollY + 400) ) {
+						if (this.y < (this.maxScrollY + 2000) ) {
 							pullUpEl.className = 'pullUp loading';
 							pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中..';
 							pullUpActionHandler(this);	// Execute custom function (ajax call?)
